@@ -9,9 +9,9 @@ import axios from 'axios'
 export default {
   name: 'App',
   created() {
-    // axios.post('http://mockjs.com/api/posts', { a: 1 }).then(res => {
-    //   console.log(res);
-    // })
+    axios.get('http://mockjs.com/api/posts', { a: 1 }).then(res => {
+      console.log(res);
+    })
   }
 }
 </script>
