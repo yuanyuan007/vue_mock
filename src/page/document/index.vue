@@ -27,10 +27,10 @@
       initDate() {
         axios.get("http://mockjs.com/api/posts", {
         }).then(function(data) {
-          console.log(data.data.data)
+          console.log(data.data.posts)
           // this.title = data.data
         }).catch(function(err) {
-          console.log(err)
+          // console.log(err)
         })
       }
     }
