@@ -12,4 +12,4 @@ const postData = req => {
   };
 }
 
-Mock.mock(`${domain}/content`, 'post', postData);
+export default Mock.mock(`${domain}/content`, 'post', postData);
