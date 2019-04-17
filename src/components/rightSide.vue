@@ -1,25 +1,43 @@
 <template>
   <div>
-    <div class="height">
-      <el-col :span="3">
-        <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
-          <el-menu-item index="1">处理中心</el-menu-item>
-          <el-submenu index="2">
-            <template slot="title">我的工作台</template>
-            <el-menu-item index="2-1">选项1</el-menu-item>
-            <el-menu-item index="2-2">选项2</el-menu-item>
-            <el-menu-item index="2-3">选项3</el-menu-item>
-            <el-submenu index="2-4">
-              <template slot="title">选项4</template>
-              <el-menu-item index="2-4-1">选项1</el-menu-item>
-              <el-menu-item index="2-4-2">选项2</el-menu-item>
-              <el-menu-item index="2-4-3">选项3</el-menu-item>
-            </el-submenu>
-          </el-submenu>
-          <el-menu-item index="3" disabled>消息中心</el-menu-item>
-          <el-menu-item index="4"><a href="https://www.ele.me" rel="external nofollow" target="_blank">订单管理</a></el-menu-item>
-        </el-menu>
-      </el-col>
+    <div class="side">
+      <el-menu :default-active="this.$router.path" default-active="home" router class="el-menu-vertical-demo" id="height" @open="handleOpen" @close="handleClose" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
+        <el-submenu index="1">
+          <template slot="title">
+            <i class="el-icon-location"></i>
+            <span>导航一</span>
+          </template>
+          <el-menu-item-group>
+            <el-menu-item index="home">首页</el-menu-item>
+            <el-menu-item index="document">文章</el-menu-item>
+            <el-menu-item index="guidePage">引导页</el-menu-item>
+          </el-menu-item-group>
+        </el-submenu>
+        <el-menu-item index="2" disabled>
+          <i class="el-icon-menu"></i>
+          <span slot="title">权限测试页</span>
+        </el-menu-item>
+        <el-menu-item index="3" disabled>
+          <i class="el-icon-document"></i>
+          <span slot="title">图标</span>
+        </el-menu-item>
+        <el-menu-item index="4" disabled>
+          <i class="el-icon-setting"></i>
+          <span slot="title">组件</span>
+        </el-menu-item>
+        <el-menu-item index="5" disabled>
+          <i class="el-icon-setting"></i>
+          <span slot="title">图表</span>
+        </el-menu-item>
+        <el-menu-item index="6" disabled>
+          <i class="el-icon-setting"></i>
+          <span slot="title">路由嵌套</span>
+        </el-menu-item>
+        <el-menu-item index="7" disabled>
+          <i class="el-icon-setting"></i>
+          <span slot="title">table</span>
+        </el-menu-item>
+      </el-menu>
     </div>
   </div>
 </template>
@@ -27,34 +45,46 @@
   export default {
     data() {
       return {
-        // titleList: [
-        //   {
-        //     title: '首页',
-        //     url: 'home'
-        //   },
-        //   {
-        //     title: '文档',
-        //     url: 'document'
-        //   },
-        //   {
-        //     title: '引导页',
-        //     url: 'guidePage'
-        //   }
-        // ],
-        activeIndex: '1'
+        tagsList: [
+          {
+            name: "home",
+            path: "/home",
+            title: "首页"
+          },
+          {
+            name: "document",
+            path: "/document",
+            title: "文档"
+          },
+          {
+            name: "guidePage",
+            path: "/guidePage",
+            title: "引导页"
+          }
+        ]
       }
     },
     methods: {
-
-      handleSelect(key, keyPath) {
+      handleOpen(key, keyPath) {
+        console.log(key, keyPath);
+      },
+      handleClose(key, keyPath) {
         console.log(key, keyPath);
       }
+    },
+    computed: {
+
     }
   }
 </script>
 <style scoped lang="less">
-  .height {
-    height: 100%;
+  #height {
+    height: 969px;
+    width: 230px;
+  }
+  .side {
+    display: flex;
+    float: left;
   }
 </style>
 
