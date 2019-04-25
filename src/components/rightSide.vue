@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="side">
-      <el-menu :default-active="this.$router.path" default-active="home" router class="el-menu-vertical-demo" id="height" @open="handleOpen" @close="handleClose" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
+      <el-menu :default-active="this.$router.path" default-active="management" router class="el-menu-vertical-demo" id="height" @open="handleOpen" @close="handleClose" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
         <el-submenu index="1">
           <template slot="title">
             <i class="el-icon-location"></i>
@@ -13,13 +13,13 @@
             <el-menu-item index="guidePage">引导页</el-menu-item>
           </el-menu-item-group>
         </el-submenu>
-        <el-menu-item index="2" disabled>
+        <el-menu-item index="testPage">
           <i class="el-icon-menu"></i>
-          <span slot="title">权限测试页</span>
+          <span slot="title">渠道管理</span>
         </el-menu-item>
-        <el-menu-item index="3" disabled>
+        <el-menu-item index="management">
           <i class="el-icon-document"></i>
-          <span slot="title">图标</span>
+          <span slot="title">贷超管理</span>
         </el-menu-item>
         <el-menu-item index="4" disabled>
           <i class="el-icon-setting"></i>
@@ -60,16 +60,21 @@
             name: "guidePage",
             path: "/guidePage",
             title: "引导页"
+          },
+          {
+            name: "testPage",
+            path: "/testPage",
+            title: "权限测试页"
           }
         ]
       }
     },
     methods: {
       handleOpen(key, keyPath) {
-        console.log(key, keyPath);
+        // console.log(key, keyPath);
       },
       handleClose(key, keyPath) {
-        console.log(key, keyPath);
+        // console.log(key, keyPath);
       }
     },
     computed: {
@@ -80,7 +85,7 @@
 <style scoped lang="less">
   #height {
     height: 969px;
-    width: 230px;
+    width: 200px;
   }
   .side {
     display: flex;

@@ -2,9 +2,9 @@
 let router = [
   {
     path: '/',
-    name: 'index',
+    name: 'testpage',
     component: resolve => require(['@/page/index.vue'], resolve),
-    redirect: '/home',
+    redirect: '/testpage',
     children: [
       {
         path: '/home',
@@ -15,10 +15,21 @@ let router = [
         path: '/guidePage',
         name: 'guidePage',
         component: resolve => require(['@/page/guidePage/index.vue'], resolve)
-      }, {
+      },
+      {
         path: '/document',
         name: 'document',
         component: resolve => require(['@/page/document/index.vue'], resolve)
+      },
+      {
+        path: '/testPage',
+        name: 'testpage',
+        component: resolve => require(['@/page/testPage/index.vue'], resolve)
+      },
+      {
+        path: '/management',
+        name: 'management',
+        component: resolve => require(['@/page/management/index.vue'], resolve)
       }
     ]
   },

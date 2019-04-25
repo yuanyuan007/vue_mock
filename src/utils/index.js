@@ -1,29 +1,29 @@
 // import store from '../store';
-
+import Vue from 'vue';
 //get params from url
 export function getParams(url) {
   url = url || window.location.href;
-  if (url.indexOf('#') != -1) {
+  if(url.indexOf('#') != -1) {
     url = url.split('#')[1];
   }
 
   let params = '';
 
-  if (url.indexOf('?') != -1) {
+  if(url.indexOf('?') != -1) {
     params = url.substr(url.indexOf('?') + 1);
   }
 
   let obj = {};
 
-  if (params) {
+  if(params) {
     let arr = [];
 
-    if (params.indexOf('&') == -1) {
+    if(params.indexOf('&') == -1) {
       arr = [params];
     } else {
       arr = params.split('&');
     }
-    for (let i = 0; i < arr.length; i++) {
+    for(let i = 0; i < arr.length; i++) {
       let s = arr[i].split('=');
 
       obj[s[0]] = decodeURIComponent(s[1]);
@@ -34,7 +34,7 @@ export function getParams(url) {
 
 //set session
 export function setSen(k, val) {
-  if (typeof val == 'string') {
+  if(typeof val == 'string') {
     sessionStorage.setItem(k, val);
     return val;
   }
@@ -47,16 +47,16 @@ export function getSen(k) {
   let uu = sessionStorage.getItem(k);
 
   try {
-    if (typeof JSON.parse(uu) != 'number') {
+    if(typeof JSON.parse(uu) != 'number') {
       uu = JSON.parse(uu);
     }
-  } catch (e) {}
+  } catch(e) { }
   return uu;
 }
 
 //set local
 export function setLoc(k, val) {
-  if (typeof val == 'string') {
+  if(typeof val == 'string') {
     localStorage.setItem(k, val);
     return val;
   }
@@ -69,16 +69,16 @@ export function getLoc(k) {
   let uu = localStorage.getItem(k);
 
   try {
-    if (typeof JSON.parse(uu) != 'number') {
+    if(typeof JSON.parse(uu) != 'number') {
       uu = JSON.parse(uu);
     }
-  } catch (e) {}
+  } catch(e) { }
   return uu;
 }
 
 //clear session
 export function clearKey(k) {
-  if (k) {
+  if(k) {
     sessionStorage.removeItem(k);
   } else {
     sessionStorage.clear();
@@ -98,22 +98,22 @@ export function getClient() {
 
 //格式化距离
 export function formatDistance(distance) {
-  if (distance < 0.1) {
+  if(distance < 0.1) {
     return '<100m';
-  } else if (distance >= 0.1 && distance < 1) {
+  } else if(distance >= 0.1 && distance < 1) {
     return distance * 1000 + 'm';
-  } else if (distance >= 1) {
+  } else if(distance >= 1) {
     return distance.toFixed(1) + 'km';
   }
 }
 
 //序列化对象和数组
 export function serialize(data) {
-  if (data != null && data != '') {
+  if(data != null && data != '') {
     try {
       return JSON.parse(JSON.stringify(data));
-    } catch (e) {
-      if (data instanceof Array) {
+    } catch(e) {
+      if(data instanceof Array) {
         return [];
       }
       return {};
@@ -124,11 +124,11 @@ export function serialize(data) {
 
 //计算金额加减时防止金额失去精度
 export function calculatePrice(price = 0) {
-  if (typeof price === 'string') {
+  if(typeof price === 'string') {
     price = parseFloat(price);
   }
 
-  if (isNaN(price)) {
+  if(isNaN(price)) {
     return 0;
   }
 
@@ -137,15 +137,15 @@ export function calculatePrice(price = 0) {
 
 //格式化金额
 export function formatPrice(price = 0) {
-  if (typeof price === 'string') {
+  if(typeof price === 'string') {
     price = parseFloat(price);
   }
 
-  if (isNaN(price)) {
+  if(isNaN(price)) {
     return 0;
   }
 
-  if (parseInt(price) === price) {
+  if(parseInt(price) === price) {
     return price;
   }
 
@@ -181,11 +181,11 @@ Date.prototype.format = function(fmt) {
     S: this.getMilliseconds() //毫秒
   };
 
-  if (/(y+)/.test(fmt)) {
+  if(/(y+)/.test(fmt)) {
     fmt = fmt.replace(RegExp.$1, String(this.getFullYear()).substr(4 - RegExp.$1.length));
   }
-  for (let k in o) {
-    if (new RegExp('(' + k + ')').test(fmt)) {
+  for(let k in o) {
+    if(new RegExp('(' + k + ')').test(fmt)) {
       fmt = fmt.replace(RegExp.$1, RegExp.$1.length == 1 ? o[k] : ('00' + o[k]).substr(String(o[k]).length));
     }
   }
@@ -195,7 +195,7 @@ Date.prototype.format = function(fmt) {
 //格式化日期
 export function formatDate(nS, format) {
   //日期格式化
-  if (!nS) {
+  if(!nS) {
     return '';
   }
   format = format || 'yyyy-MM-dd hh:mm:ss';
@@ -229,10 +229,10 @@ Array.prototype.indexOfArr = function(obj) {
   this.filter(function(e, i) {
     let keys = '';
 
-    for (let key in obj) {
+    for(let key in obj) {
       keys = key;
     }
-    if (obj[keys] == e[keys]) {
+    if(obj[keys] == e[keys]) {
       res = i;
     }
   });
@@ -246,7 +246,7 @@ Array.prototype.findIndex = function(func) {
   this.forEach((item, index) => {
     var flag = func(item);
 
-    if (flag) {
+    if(flag) {
       result = index;
     }
   });
@@ -255,21 +255,21 @@ Array.prototype.findIndex = function(func) {
 
 Array.prototype.max = function(prop) {
   let result;
-  if (!this.length) {
+  if(!this.length) {
     return null;
   }
 
-  if (prop.length) {
+  if(prop.length) {
     result = this[0];
     this.forEach(item => {
-      if (item[prop] > result[prop]) {
+      if(item[prop] > result[prop]) {
         result = item;
       }
     });
   } else {
     result = this[0];
     this.forEach(item => {
-      if (item > result) {
+      if(item > result) {
         result = item;
       }
     });
@@ -279,21 +279,21 @@ Array.prototype.max = function(prop) {
 
 Array.prototype.min = function(prop) {
   let result;
-  if (!this.length) {
+  if(!this.length) {
     return null;
   }
 
-  if (prop.length) {
+  if(prop.length) {
     result = this[0];
     this.forEach(item => {
-      if (item[prop] < result[prop]) {
+      if(item[prop] < result[prop]) {
         result = item;
       }
     });
   } else {
     result = this[0];
     this.forEach(item => {
-      if (item < result) {
+      if(item < result) {
         result = item;
       }
     });
@@ -316,4 +316,125 @@ export function jsonCallback(data) {
     errorCode: [],
     status: 10000000
   };
+}
+
+export function parseTime(time, cFormat) {
+  if(arguments.length === 0) {
+    return null;
+  }
+  const format = cFormat || '{y}-{m}-{d} {h}:{i}:{s}';
+  let date;
+  if(typeof time === 'object') {
+    date = time;
+  } else {
+    if(('' + time).length === 10) time = parseInt(time) * 1000;
+    date = new Date(time);
+  }
+  const formatObj = {
+    y: date.getFullYear(),
+    m: date.getMonth() + 1,
+    d: date.getDate(),
+    h: date.getHours(),
+    i: date.getMinutes(),
+    s: date.getSeconds(),
+    a: date.getDay()
+  };
+  const time_str = format.replace(/{(y|m|d|h|i|s|a)+}/g, (result, key) => {
+    let value = formatObj[key];
+    // Note: getDay() returns 0 on Sunday
+    if(key === 'a') {
+      return ['日', '一', '二', '三', '四', '五', '六'][value];
+    }
+    if(result.length > 0 && value < 10) {
+      value = '0' + value;
+    }
+    return value || 0;
+  });
+  return time_str;
+}
+
+//tabelTree格式化数据
+export function treeToArray(data, expandAll, parent = null, level = null) {
+  let tmp = [];
+  Array.from(data).forEach(function(record) {
+    if(record._expanded === undefined) {
+      Vue.set(record, '_expanded', expandAll);
+      // record._expanded = expandAll;
+    }
+    let _level = 1;
+    if(level !== undefined && level !== null) {
+      _level = level + 1;
+    }
+    Vue.set(record, '_level', _level);
+    // record._level = _level;
+    // 如果有父元素
+    if(parent) {
+      Vue.set(record, 'parent', parent);
+      // record.parent = parent;
+    }
+    tmp.push(record);
+    if(record.children && record.children.length > 0) {
+      const children = treeToArray(record.children, expandAll, record, _level);
+      tmp = tmp.concat(children);
+    }
+  });
+  return tmp;
+}
+//设置cookie
+export function setCookie(name, value, day) {
+  if(day !== 0) { //当设置的时间等于0时，不设置expires属性，cookie在浏览器关闭后删除
+    var expires = day * 24 * 60 * 60 * 1000;
+    var date = new Date(+new Date() + expires);
+    document.cookie = name + "=" + escape(value) + ";expires=" + date.toUTCString();
+  } else {
+    document.cookie = name + "=" + escape(value);
+  }
+};
+//获取cookie
+export function getCookie(name) {
+  var arr;
+  var reg = new RegExp('(^| )' + name + '=([^;]*)(;|$)');
+  if((arr = document.cookie.match(reg))) return unescape(arr[2]);
+  else return null;
+}
+
+//删除cookie
+export function delCookie(name) {
+  setCookie(name, ' ', -1);
+};
+
+//数组去重
+export function rep2(arr) {
+  for(var i = 0; i < arr.length; i++) {
+    if(arr.indexOf(arr[i]) != i) {
+      arr.splice(i, 1); //删除数组元素后数组长度减1后面的元素前移
+      i--; //数组下标回退
+    }
+    if(arr.includes(null)) { // stivepeim add by el-tree sourceData employeeId is null
+      arr.splice(1, 1)
+      i--;
+    }
+  }
+  return arr;
+}
+
+/**
+ * 针对element的时间区间控件解析选择的时间左右侧值
+ * @param date
+ * @returns {{start: string, end: string}}
+ */
+export function expendsDataRangeByElDate(date) {
+  let result = {
+    start: '',
+    end: ''
+  }
+  // if(date) {
+  //     return result
+  // }
+  if(date.length !== 2) {
+    return result
+  }
+  result.start = date[0]
+  result.end = date[1]
+  return result
 }
