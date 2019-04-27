@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="side">
-      <el-menu :default-active="this.$router.path" default-active="management" router class="el-menu-vertical-demo" id="height" @open="handleOpen" @close="handleClose" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
+      <el-menu :default-active="this.$router.path" default-active="animation" router class="el-menu-vertical-demo" id="height" @open="handleOpen" @close="handleClose" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
         <el-submenu index="1">
           <template slot="title">
             <i class="el-icon-location"></i>
@@ -10,17 +10,40 @@
           <el-menu-item-group>
             <el-menu-item index="home">首页</el-menu-item>
             <el-menu-item index="document">文章</el-menu-item>
-            <el-menu-item index="guidePage">引导页</el-menu-item>
+            <el-menu-item index="guidePage">回收站</el-menu-item>
           </el-menu-item-group>
         </el-submenu>
         <el-menu-item index="testPage">
           <i class="el-icon-menu"></i>
           <span slot="title">渠道管理</span>
         </el-menu-item>
-        <el-menu-item index="management">
+        <el-menu-item index="creditSuper">
           <i class="el-icon-document"></i>
           <span slot="title">贷超管理</span>
         </el-menu-item>
+        <el-submenu index="2">
+          <template slot="title">
+            <i class="el-icon-location"></i>
+            <span>practice  Vuex</span>
+          </template>
+          <el-menu-item-group>
+            <el-menu-item index="creditSuperRight">creditSuperRight</el-menu-item>
+            <el-menu-item index="text">text</el-menu-item>
+            <el-menu-item index="text1">text1</el-menu-item>
+            <el-menu-item index="animation">animation</el-menu-item>
+          </el-menu-item-group>
+        </el-submenu>
+        <el-submenu index="3">
+          <template slot="title">
+            <i class="el-icon-location"></i>
+            <span>practice</span>
+          </template>
+          <el-menu-item-group>
+            <el-menu-item index="text" disabled>text</el-menu-item>
+            <el-menu-item index="text1" disabled>text1</el-menu-item>
+            <el-menu-item index="text2" disabled>text2</el-menu-item>
+          </el-menu-item-group>
+        </el-submenu>
         <el-menu-item index="4" disabled>
           <i class="el-icon-setting"></i>
           <span slot="title">组件</span>

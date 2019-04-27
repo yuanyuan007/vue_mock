@@ -7,6 +7,7 @@ import App from './App'
 import router from './router'
 import './mock';
 import '@/assets/css/index.css';
+import store from '@/store';
 Vue.use(ElementUI, {
   size: 'small'
 });
@@ -15,6 +16,7 @@ Vue.config.productionTip = false;
 new Vue({
   el: '#app',
   router,
+  store,
   components: {
     App
   },

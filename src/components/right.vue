@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- 新增渠道 -->
-    <div class="box">
+    <div class="box animation">
       <div class="header">添加渠道<span @click="close">X</span></div>
       <div class="content">
         <el-form label-width="120px" :model="addChannel" ref="rules" :rules="rules">
@@ -21,9 +21,7 @@
           <el-form-item label="渠道名称：">
             <el-input v-model="addChannel.channelName" class="input-width" placeholder="请输入渠道名称"></el-input>
           </el-form-item>
-          <el-form-item label="渠道编码：" :rules="[
-            { required: true, message: '请输入渠道名称', trigger: 'blur' }
-          ]">
+          <el-form-item label="渠道编码：">
             <el-input v-model="addChannel.channelCode" class="input-width" placeholder="请输入渠道编码"></el-input>
             <el-tooltip class="item" effect="dark" content="为防止渠道编码重复，系统在渠道编码前增加前缀，不影响使用和数据统计" placement="bottom">
               <i class="el-icon-question color"></i>
@@ -206,6 +204,17 @@
     }
     .button {
       margin: 10% 44%;
+    }
+  }
+  .animation {
+    animation: change 0.4s;
+  }
+  @keyframes change {
+    0% {
+      transform: translate(100%);
+    }
+    100% {
+      transform: translate(0);
     }
   }
 </style>

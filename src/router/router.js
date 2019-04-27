@@ -4,7 +4,7 @@ let router = [
     path: '/',
     name: 'testpage',
     component: resolve => require(['@/page/index.vue'], resolve),
-    redirect: '/testpage',
+    redirect: '/creditSuper',
     children: [
       {
         path: '/home',
@@ -27,9 +27,28 @@ let router = [
         component: resolve => require(['@/page/testPage/index.vue'], resolve)
       },
       {
-        path: '/management',
-        name: 'management',
-        component: resolve => require(['@/page/management/index.vue'], resolve)
+        path: '/creditSuper',
+        name: 'creditSuper',
+        component: resolve => require(['@/page/creditSuper/index.vue'], resolve)
+      },
+      {
+        path: 'creditSuperRight',
+        name: 'creditSuperRight',
+        component: resolve => require(['@/components/creditSuperRight.vue'], resolve)
+      },
+      {
+        path: 'text1',
+        name: 'text1',
+        component: resolve => require(['@/components/text1.vue'], resolve)
+      },
+      {
+        path: 'animation',
+        name: 'animation',
+        component: resolve => require(['@/components/animation.vue'], resolve)
+      }, {
+        path: 'text',
+        name: 'text',
+        component: resolve => require(['@/components/text.vue'], resolve)
       }
     ]
   },

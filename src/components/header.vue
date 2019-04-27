@@ -14,27 +14,12 @@
         <i class="el-icon-star-on"></i>
       </div>
     </div>
-    <!-- <el-tag :key="tag" v-for="tag in dynamicTags" closable :disable-transitions="false" @close="handleClose(tag)" class="tag">
-        {{tag}}
-      </el-tag> -->
-    <!-- <div class="tags">
-      <ul>
-        <li v-for="(item,index) in tagsList" :key="index">
-          <router-link :to="item.path">
-            {{item.title}}
-          </router-link>
-        </li>
-      </ul>
-    </div> -->
   </div>
 </template>
 <script>
   export default {
     data() {
       return {
-        // dynamicTags: ['首页', '文档', '页面权限', '图标'],
-        // inputVisible: false,
-        // inputValue: '',
         tagsList: [
           {
             name: "home",

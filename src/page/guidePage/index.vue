@@ -8,15 +8,15 @@
       <el-table-column prop="author" label="作者">
       </el-table-column>
     </el-table>
-    <num title="guidePage调用num" />
+    <text title="guidePage调用text" />
   </div>
 </template>
 <script>
-  import num from '@/components/num.vue';
+  import text from '@/components/text.vue';
   import { setSen, getSen } from '@/utils';
   export default {
     components: {
-      num
+      text
     },
     data() {
       return {

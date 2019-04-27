@@ -41,16 +41,10 @@
       <br/>
       <div>
       </div>
-      调用组件
-      <num title="home调用num"></num>
     </div>
 </template>
 <script>
-  import num from '@/components/num.vue'
   export default {
-    components: {
-      num
-    },
     data() {
       return {
         check: true,
@@ -58,14 +52,17 @@
         clickAdd: 0,
         select: require('@/assets/background1.jpeg'),
         options: [
-          { text: 'One', value: require('@/assets/background1.jpeg') },
-          { text: 'Two', value: require('@/assets/background2.png') },
-          { text: 'Three', value: require('@/assets/background3.jpeg') },
-          { text: 'four', value: require('@/assets/background4.jpg') },
+          { text: 'One', value: require('@/assets/background1.jpeg'), type: 'primary' },
+          { text: 'Two', value: require('@/assets/background2.png'), type: 'success' },
+          { text: 'Three', value: require('@/assets/background3.jpeg'), type: 'danger' },
+          { text: 'four', value: require('@/assets/background4.jpg'), type: 'info' },
+          { text: 'five', value: require('@/assets/background.jpg'), type: 'warning' },
         ],
         num: [],
         name: 'haha'
       }
+    },
+    computed: {
     },
     methods: {
       greet(event) {
