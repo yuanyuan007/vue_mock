@@ -45,10 +45,31 @@ let router = [
         path: 'animation',
         name: 'animation',
         component: resolve => require(['@/components/animation.vue'], resolve)
-      }, {
+      },
+      {
         path: 'text',
         name: 'text',
         component: resolve => require(['@/components/text.vue'], resolve)
+      },
+      {
+        path: 'financialStatistics',
+        name: 'financialStatistics',
+        component: resolve => require(['@/page/financialStatistics/index.vue'], resolve)
+      },
+      {
+        path: 'vcharts',
+        name: 'vcharts',
+        component: resolve => require(['@/page/vcharts/index.vue'], resolve)
+      },
+      {
+        path: 'dateQuery',
+        name: 'dateQuery',
+        component: resolve => require(['@/page/dateQuery/index.vue'], resolve)
+      },
+      {
+        path: 'receivableStatistics',
+        name: 'receivableStatistics',
+        component: resolve => require(['@/page/receivableStatistics/index.vue'], resolve)
       }
     ]
   },

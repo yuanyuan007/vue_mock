@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="side">
-      <el-menu :default-active="this.$router.path" default-active="animation" router class="el-menu-vertical-demo" id="height" @open="handleOpen" @close="handleClose" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
+      <el-menu :default-active="this.$router.path" default-active="receivableStatistics" router class="el-menu-vertical-demo" id="height" @open="handleOpen" @close="handleClose" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
         <el-submenu index="1">
           <template slot="title">
             <i class="el-icon-location"></i>
@@ -20,6 +20,22 @@
         <el-menu-item index="creditSuper">
           <i class="el-icon-document"></i>
           <span slot="title">贷超管理</span>
+        </el-menu-item>
+        <el-menu-item index="financialStatistics">
+          <i class="el-icon-menu"></i>
+          <span slot="title">财务统计</span>
+        </el-menu-item>
+        <el-menu-item index="vcharts">
+          <i class="el-icon-menu"></i>
+          <span slot="title">v-charts</span>
+        </el-menu-item>
+        <el-menu-item index="dateQuery">
+          <i class="el-icon-menu"></i>
+          <span slot="title">data</span>
+        </el-menu-item>
+        <el-menu-item index="receivableStatistics">
+          <i class="el-icon-document"></i>
+          <span slot="title">回款统计</span>
         </el-menu-item>
         <el-submenu index="2">
           <template slot="title">

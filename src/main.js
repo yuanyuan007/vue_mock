@@ -8,6 +8,8 @@ import router from './router'
 import './mock';
 import '@/assets/css/index.css';
 import store from '@/store';
+import VCharts from 'v-charts' //统计图
+Vue.use(VCharts)
 Vue.use(ElementUI, {
   size: 'small'
 });
@@ -17,6 +19,7 @@ new Vue({
   el: '#app',
   router,
   store,
+  render: h => h(App),
   components: {
     App
   },

@@ -6,7 +6,6 @@
     <span>button值改变text1的图片</span>
     <img :src="getVal" class="img">
     <span>text1 的button值： </span> {{getCount}}
-
   </div>
 </template>
 <script>
