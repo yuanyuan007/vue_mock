@@ -70,6 +70,11 @@ let router = [
         path: 'receivableStatistics',
         name: 'receivableStatistics',
         component: resolve => require(['@/page/receivableStatistics/index.vue'], resolve)
+      },
+      {
+        path: 'consumption',
+        name: 'consumption',
+        component: resolve => require(['@/page/consumption/index.vue'], resolve)
       }
     ]
   },
