@@ -1,113 +1,67 @@
 <template>
   <div>
-    <div class="side">
-      <el-menu :default-active="this.$router.path" default-active="consumption" router class="el-menu-vertical-demo" id="height" @open="handleOpen" @close="handleClose" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
-        <el-submenu index="1">
-          <template slot="title">
-            <i class="el-icon-location"></i>
-            <span>导航一</span>
-          </template>
-          <el-menu-item-group>
-            <el-menu-item index="home">首页</el-menu-item>
-            <el-menu-item index="document">文章</el-menu-item>
-            <el-menu-item index="guidePage">回收站</el-menu-item>
-          </el-menu-item-group>
-        </el-submenu>
-        <el-menu-item index="testPage">
-          <i class="el-icon-menu"></i>
-          <span slot="title">渠道管理</span>
-        </el-menu-item>
-        <el-menu-item index="creditSuper">
-          <i class="el-icon-document"></i>
-          <span slot="title">贷超管理</span>
-        </el-menu-item>
-        <el-menu-item index="financialStatistics">
-          <i class="el-icon-menu"></i>
-          <span slot="title">财务统计</span>
-        </el-menu-item>
-        <el-menu-item index="vcharts">
-          <i class="el-icon-menu"></i>
-          <span slot="title">v-charts</span>
-        </el-menu-item>
-        <el-menu-item index="dateQuery">
-          <i class="el-icon-menu"></i>
-          <span slot="title">data</span>
-        </el-menu-item>
-        <el-menu-item index="receivableStatistics">
-          <i class="el-icon-document"></i>
-          <span slot="title">回款统计</span>
-        </el-menu-item>
-        <el-menu-item index="consumption">
-          <i class="el-icon-document"></i>
-          <span slot="title">数据消费</span>
-        </el-menu-item>
-        <el-submenu index="2">
-          <template slot="title">
-            <i class="el-icon-location"></i>
-            <span>practice  Vuex</span>
-          </template>
-          <el-menu-item-group>
-            <el-menu-item index="creditSuperRight">creditSuperRight</el-menu-item>
-            <el-menu-item index="text">text</el-menu-item>
-            <el-menu-item index="text1">text1</el-menu-item>
-            <el-menu-item index="animation">animation</el-menu-item>
-          </el-menu-item-group>
-        </el-submenu>
-        <el-submenu index="3">
-          <template slot="title">
-            <i class="el-icon-location"></i>
-            <span>practice</span>
-          </template>
-          <el-menu-item-group>
-            <el-menu-item index="text" disabled>text</el-menu-item>
-            <el-menu-item index="text1" disabled>text1</el-menu-item>
-            <el-menu-item index="text2" disabled>text2</el-menu-item>
-          </el-menu-item-group>
-        </el-submenu>
-        <el-menu-item index="4" disabled>
-          <i class="el-icon-setting"></i>
-          <span slot="title">组件</span>
-        </el-menu-item>
-        <el-menu-item index="5" disabled>
-          <i class="el-icon-setting"></i>
-          <span slot="title">图表</span>
-        </el-menu-item>
-        <el-menu-item index="6" disabled>
-          <i class="el-icon-setting"></i>
-          <span slot="title">路由嵌套</span>
-        </el-menu-item>
-        <el-menu-item index="7" disabled>
-          <i class="el-icon-setting"></i>
-          <span slot="title">table</span>
-        </el-menu-item>
-      </el-menu>
-    </div>
+    <el-menu :default-active="this.$router.path" default-active="consumption" router class="el-menu-vertical-demo" id="height" @open="handleOpen" @close="handleClose" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
+      <el-menu-item v-for="(item,index) in items" :key="index" :index="item.index">
+        <i :class="item.icon"></i>
+        <span slot="title">{{item.title}}</span></el-menu-item>
+    </el-menu>
+    <i class="el-icon-platform-eleme"></i>
   </div>
 </template>
 <script>
   export default {
     data() {
       return {
-        tagsList: [
+        items: [
           {
-            name: "home",
-            path: "/home",
-            title: "首页"
+            index: "home",
+            title: "首页",
+            icon: 'el-icon-menu'
           },
           {
-            name: "document",
-            path: "/document",
-            title: "文档"
+            index: "document",
+            title: "文章",
+            icon: 'el-icon-menu'
           },
           {
-            name: "guidePage",
-            path: "/guidePage",
-            title: "引导页"
+            index: 'guidePage',
+            title: '回收站',
+            icon: 'el-icon-menu'
           },
           {
-            name: "testPage",
-            path: "/testPage",
-            title: "权限测试页"
+            index: 'testPage',
+            title: '渠道管理',
+            icon: 'el-icon-menu'
+          },
+          {
+            index: 'creditSuper',
+            title: '贷超管理',
+            icon: 'el-icon-menu'
+          },
+          {
+            index: 'financialStatistics',
+            title: '财务统计',
+            icon: 'el-icon-menu'
+          },
+          {
+            index: 'vcharts',
+            title: 'vcharts',
+            icon: 'el-icon-menu'
+          },
+          {
+            index: "dateQuery",
+            title: "日期",
+            icon: 'el-icon-menu'
+          },
+          {
+            index: "receivableStatistics",
+            title: "回款统计",
+            icon: 'el-icon-menu'
+          },
+          {
+            index: 'consumption',
+            title: '数据消费',
+            icon: 'el-icon-menu'
           }
         ]
       }
@@ -118,21 +72,11 @@
       },
       handleClose(key, keyPath) {
         // console.log(key, keyPath);
-      }
+      },
     },
-    computed: {
 
-    }
   }
 </script>
 <style scoped lang="less">
-  #height {
-    height: 969px;
-    width: 200px;
-  }
-  .side {
-    display: flex;
-    float: left;
-  }
 </style>
 
