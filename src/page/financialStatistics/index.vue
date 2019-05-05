@@ -46,7 +46,7 @@
         height = document.body.clientHeight;
         this.tableHeight = parseInt(height) - 150
       })
-    },
+    }
   }
 </script>
 <style lang="less" scoped>
